@@ -1510,10 +1510,6 @@ protected:
     holder_type holder;
 };
 
-/// Specialize for the common std::shared_ptr, so users don't need to
-template <typename T>
-class type_caster<std::shared_ptr<T>> : public copyable_holder_caster<T, std::shared_ptr<T>> { };
-
 template <typename type, typename holder_type>
 struct move_only_holder_caster {
     static_assert(std::is_base_of<type_caster_base<type>, type_caster<type>>::value,
