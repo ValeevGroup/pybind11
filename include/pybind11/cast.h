@@ -1901,7 +1901,7 @@ public:
     static constexpr bool has_kwargs = kwargs_pos < 0;
     static constexpr bool has_args = args_pos < 0;
 
-    static constexpr auto arg_names = concat(type_descr(make_caster<Args>::name)...);
+    static constexpr auto arg_names = detail::concat(type_descr(make_caster<Args>::name)...);
 
     bool load_args(function_call &call) {
         return load_impl_sequence(call, indices{});
